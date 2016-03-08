@@ -37,14 +37,10 @@ Configure your project using the esixstarter-config.json file:
 ##### Install dependencies & Start developing
 
 Install project dependencies from command line:
-<pre><code>
-npm install
-</code></pre>
+<pre><code>npm install</code></pre>
 
 Run gulp command and start developing:
-<pre><code>
-gulp
-</code></pre>
+<pre><code>gulp</code></pre>
 
 By default gulp will start a new web server at http://localhost:8080 and karma for test execution.
 
