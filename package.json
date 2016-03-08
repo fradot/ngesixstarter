@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Javascript TDD-ready front-end template with ES6 support.",
   "main": "src/js/main.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "gulp test"
   },
