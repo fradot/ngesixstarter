@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>esixstarter - Javascript ES6 ready frontend starter template.</title>
+
+    <link rel="stylesheet" href="css/main.min.css" media="screen" charset="utf-8">
+  </head>
+
+  <body>
+
+    <header>
+      <h1>esixstarter</h1>
+      <p>A simple javascript starter template with ECMAScript6 support.</p>
+    </header>
+
+    <div id="container">
+
+        <h2>Javascript Test Driven Development template</h2>
+
+        <p>esixstarter is a simple front-end starter template for
+          building javascript applications using ECMAScript6 features.</p>
+
+        <h2>Features</h2>
+
+        <ul>
+          <li> TDD-ready environment.</li>
+          <li> ECMAScript6 support.</li>
+          <li> Livereload! Browser automatically refresh on changes.</li>
+          <li> Less support.</li>
+          <li> Javascript & CSS minification.</li>
+          <li> Javascript linting.</li>
+          <li> CSS Autoprefixer</li>
+        </ul>
+
+
+        <h2>Configure your project</h2>
+        <p>Configure your project using the esixstarter-config.json file:</p>
+
+        <pre><code>
+        {
+          "name": "&lt;your project name&gt;",
+          "description": "&lt;your project description goes here&gt;",
+          "dirs": {
+              "test": "test",
+              "dist": "dist",
+              "src": "src"
+            },
+          "version": "1.0.0",
+          "author" : "&lt;author fullname&gt;"
+        }
+        </code></pre>
+
+        <h4> Install dependencies </h4>
+
+        <p>Install project dependencies from command line:</p>
+        <pre><code>npm install</code></pre>
+
+        <h4> Start developing </h4>
+
+        <p>  Start a development environment from your command line :</p> <pre><code>gulp</code></pre>
+
+        <p>By default gulp will start a new web server at <a href="localhost:8080">localhost</a> and karma for test execution.</p>
+        <p>Javascript code will be transpiled to EcmaScript5</p>
+
+
+        <h4> Build your project </h4>
+        <p>Build your project using the build command:</p>
+        <pre><code>gulp build</code></pre>
+
+        <p>The above command will produce a 'dist' folder.</p>
+
+        <p>In order to produce a production-ready version of the project the argument 'production' has to be appended to the build command:</p>
+        <pre><code>gulp build --production</code></pre>
+
+    </div>
+
+    <footer>
+        <h2> License </h2>
+
+        <p>
+        The MIT License (MIT)
+        <br/><br/>
+        Copyright (c) 2016 Francesco Tucceri
+        <br/><br/>
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        <br/><br/>
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        <br/><br/>
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+      </p>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "<your project name>",
+  "description": "<your project description goes here>",
+  "dirs": {
+      "test": "test",
+      "dist": "dist",
+      "src": "src"
+    },
+  "version": "1.0.0",
+  "author" : "<author fullname>"
+}
