@@ -13,7 +13,7 @@ esixstarter is a simple front-end starter template for building javascript appli
 - CSS Autoprefixer.
 
 ## Quick Start
-1. Download the zip project <a href="#">here</a>
+1. Download the zip project <a href="https://github.com/fradot/esixstarter/archive/master.zip">here</a>
 
 2. Or clone this git repo: <pre><code>git clone https://github.com/fradot/esixstarter.git</code></pre>
 
