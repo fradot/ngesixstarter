@@ -4,9 +4,6 @@
   "description": "Javascript TDD-ready front-end template with ES6 support.",
   "main": "src/js/main.js",
   "private": false,
-  "scripts": {
-    "test": "gulp test"
-  },
   "repository" : {
     "type" : "git",
     "url" : "https://github.com/fradot/esixstarter.git"
