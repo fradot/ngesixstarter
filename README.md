@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fradot/esixstarter.svg?branch=master)](https://travis-ci.org/fradot/esixstarter)
+
 # Javascript ES6 ready frontend starter template
 
 esixstarter is a simple front-end starter template for building javascript applications using ECMAScript6 features.
