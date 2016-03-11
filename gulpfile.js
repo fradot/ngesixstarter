@@ -86,6 +86,37 @@ gulp.task('source', function () {
     .pipe(plugins.connect.reload());
 });
 
+gulp.task('watch', function (done) {
+  // Watching files
+  gulp.watch(
+       [dirs.src + '/js/*.js',dirs.test + '/*.js',
+         dirs.src + '/less/*.less',dirs.src + '/*.html'],
+       ['lint:js','scripts','styles','source']
+   );
+
+   done();
+});
+
+gulp.task('karma', function (done) {
+   // Starting Karma for test execution
+   var server = new Server({
+     configFile: __dirname + '/karma.conf.js',
+     singleRun: false,
+     background: true
+   });
+
+   server.start();
+   done();
+});
+
+gulp.task('connect', function() {
+    // Web Server
+    plugins.connect.server({
+      root: [dirs.dist],
+      livereload: true
+    });
+});
+
 gulp.task('copy', ['scripts','styles','source']);
 
 
@@ -102,34 +133,17 @@ gulp.task('test', function (done) {
 // -------- MAIN TASKS
 
 gulp.task('build', function (done) {
-  runSequence(
-      ['clean','test','lint:js'],
+  runSequence('clean',
+      ['test','lint:js'],
       'copy',
   done);
 });
 
-gulp.task('dev',['copy','connect'], function () {
-   // Watching files
-   gulp.watch(
-        [dirs.src + '/js/*.js',dirs.test + '/*.js',
-          dirs.src + '/less/*.less',dirs.src + '/*.html'],
-        ['lint:js','scripts','styles','source']
-    );
-
-    // Starting Karma for test execution
-    new Server({
-      configFile: __dirname + '/karma.conf.js',
-      singleRun: false,
-      background: true
-    }).start();
-});
-
-// Web Server
-gulp.task('connect', function() {
-    plugins.connect.server({
-      root: [dirs.dist],
-      livereload: true
-    });
+gulp.task('dev', function (done) {
+   runSequence('clean',
+        ['copy','connect','watch'],
+        'karma',
+   done);
 });
 
 // Starting a web server and karma for tdd.
