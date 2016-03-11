@@ -49,8 +49,8 @@ gulp.task('scripts', function (done) {
     .pipe(buffer())
     // sourcemaps
     .pipe(plugins.sourcemaps.init({loadMaps: true}))
-      .pipe(plugins.uglify({mangle:true}))
-        .on('error', gutil.log)
+    .pipe(plugins.uglify({mangle:true}))
+      .on('error', gutil.log)
     .pipe(plugins.sourcemaps.write('./'))
     // .pipe(plugins.header(banner))
     .pipe(gulp.dest(dirs.dist + '/js'))
@@ -140,11 +140,10 @@ gulp.task('build', function (done) {
 });
 
 gulp.task('dev', function (done) {
-   runSequence('clean',
-        ['copy','connect','watch'],
-        'karma',
+   runSequence('clean','copy',
+        ['connect','watch','karma'],
    done);
 });
 
 // Starting a web server and karma for tdd.
-gulp.task('default', ['dev']);
+gulp.task('default',['dev']);
