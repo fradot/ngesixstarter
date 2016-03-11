@@ -82,7 +82,7 @@ gulp.task('source', function () {
   ], {
       // Include hidden files by default
       dot: true
-  }).pipe(gulp.dest(dirs.dist));
+  }).pipe(gulp.dest(dirs.dist))
     .pipe(plugins.connect.reload());
 });
 
