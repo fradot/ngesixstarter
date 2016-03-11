@@ -83,7 +83,7 @@ gulp.task('source', function () {
       // Include hidden files by default
       dot: true
   }).pipe(gulp.dest(dirs.dist));
-    // .pipe(plugins.connect.reload());
+    .pipe(plugins.connect.reload());
 });
 
 gulp.task('copy', ['scripts','styles','source']);
