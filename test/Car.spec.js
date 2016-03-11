@@ -4,10 +4,10 @@ describe('Car',() => {
   let c;
 
   beforeEach(() => {
-      c = new Car('Golf 1.6 tdi','AX #####');
+      c = new Car('ACar 1.6 tdi','AX #####');
   });
 
-  it('should be a Golf!',() => {
-      expect(c.model).toEqual('Golf 1.6 tdi');
+  it('should be a ACar!',() => {
+      expect(c.model).toEqual('ACar 1.6 tdi');
   });
 });
