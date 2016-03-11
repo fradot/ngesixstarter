@@ -47,12 +47,12 @@ gulp.task('scripts', function (done) {
   return b.bundle()
     .pipe(source('main.js'))
     .pipe(buffer())
-    // sourcemaps - currently not working
-    // .pipe(gulpif(!argv.production,plugins.sourcemaps.init({loadMaps: true})))
-    .pipe(gulpif(argv.production,plugins.uglify({mangle:true})))
-      .on('error', gutil.log)
-    // .pipe(gulpif(!argv.production,plugins.sourcemaps.write('./')))
-    .pipe(plugins.header(banner))
+    // sourcemaps
+    .pipe(plugins.sourcemaps.init({loadMaps: true}))
+      .pipe(plugins.uglify({mangle:true}))
+        .on('error', gutil.log)
+    .pipe(plugins.sourcemaps.write('./'))
+    // .pipe(plugins.header(banner))
     .pipe(gulp.dest(dirs.dist + '/js'))
     .pipe(plugins.connect.reload());
 });
