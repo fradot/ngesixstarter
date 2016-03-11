@@ -45,7 +45,7 @@ gulp.task('scripts', function (done) {
   });
 
   return b.bundle()
-    .pipe(source('main.min.js'))
+    .pipe(source('main.js'))
     .pipe(buffer())
     // sourcemaps - currently not working
     // .pipe(gulpif(!argv.production,plugins.sourcemaps.init({loadMaps: true})))
