@@ -8,6 +8,7 @@ esixstarter is a simple front-end starter template for building javascript appli
 
 - TDD-ready environment.
 - ECMAScript6 support.
+- Source maps for javascript debugging.
 - Livereload! Browser automatically refresh on changes.
 - LESS support.   
 - Javascript & CSS minification.
@@ -44,9 +45,11 @@ Install project dependencies from command line:
 Run gulp command and start developing:
 <pre><code>gulp</code></pre>
 
-By default gulp will start a new web server at http://localhost:8080 and karma for test execution.
+By default gulp will starts a new web server at http://localhost:8080 and karma for test execution.
 
-Javascript code will be transpiled to EcmaScript5.
+Javascript code will be transpiled to EcmaScript5. All js files will be minified and included in dist/js/main.js.
+
+Enable javascript **source maps** in your browser to easily debug your application.
 
 ##### Build project
 Build your project using the build command:
