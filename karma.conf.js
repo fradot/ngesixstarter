@@ -9,13 +9,13 @@ module.exports = function(config) {
     frameworks: ['jasmine','browserify'],
 
     files: [
-      'src/**/*.js',
-      'test/*.js',
+      'src/js/**/*.js',
+      'test/**/*.js',
     ],
 
    preprocessors: {
-      'src/js/*.js': ['browserify'],
-      'test/*.spec.js': ['browserify']
+      'src/js/**/*.js': ['browserify'],
+      'test/**/*.spec.js': ['browserify']
     },
 
     browserify: {
