@@ -49,7 +49,7 @@ gulp.task('scripts', function (done) {
     .pipe(buffer())
     // sourcemaps - currently not working
     // .pipe(gulpif(!argv.production,plugins.sourcemaps.init({loadMaps: true})))
-    .pipe(gulpif(!argv.production,plugins.uglify({mangle:true})))
+    .pipe(gulpif(argv.production,plugins.uglify({mangle:true})))
       .on('error', gutil.log)
     // .pipe(gulpif(!argv.production,plugins.sourcemaps.write('./')))
     .pipe(plugins.header(banner))
