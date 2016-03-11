@@ -54,9 +54,6 @@ Build your project using the build command:
 
 The above command will produce a 'dist' folder.
 
-In order to produce a production-ready version of the project the argument 'production' has to be appended to the build command:
-<pre><code>gulp build --production</code></pre>
-
 ## License
 
 The MIT License (MIT)
