@@ -54,7 +54,10 @@ gulp.task('scripts', function (done) {
     .pipe(plugins.sourcemaps.write('./'))
     // .pipe(plugins.header(banner))
     .pipe(gulp.dest(dirs.dist + '/js'))
-    .pipe(plugins.connect.reload());
+    .on('end', function () {
+      gulp.src(dirs.dist + '/**/*')
+        .pipe(plugins.connect.reload());
+    });
 });
 
 gulp.task('styles', function () {
@@ -70,7 +73,10 @@ gulp.task('styles', function () {
     .pipe(gulpif(argv.production,plugins.cssnano()))
     .pipe(plugins.concat('main.min.css'))
     .pipe(gulp.dest(dirs.dist + '/css'))
-    .pipe(plugins.connect.reload());
+    .on('end', function () {
+      gulp.src(dirs.dist + '/**/*')
+        .pipe(plugins.connect.reload());
+    });
 });
 
 gulp.task('source', function () {
@@ -83,18 +89,20 @@ gulp.task('source', function () {
       // Include hidden files by default
       dot: true
   }).pipe(gulp.dest(dirs.dist))
-    .pipe(plugins.connect.reload());
+  .on('end', function () {
+    gulp.src(dirs.dist + '/**/*')
+      .pipe(plugins.connect.reload());
+  });
 });
 
 gulp.task('watch', function (done) {
   // Watching files
   gulp.watch(
-       [dirs.src + '/js/*.js',dirs.test + '/*.js',
-         dirs.src + '/less/*.less',dirs.src + '/*.html'],
+       [dirs.src + '/js/**/*.js',
+         dirs.src + '/less/**/*.less',
+         dirs.src + '/*.html'],
        ['lint:js','scripts','styles','source']
-   );
-
-   done();
+     ).on('end', done);
 });
 
 gulp.task('karma', function (done) {
