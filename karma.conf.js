@@ -19,9 +19,8 @@ module.exports = function(config) {
     },
 
     browserify: {
-        //  debug: true,
-         transform: [["babelify", { "presets": ["es2015"] }]]
-         // transform: ['babelify']
+        debug: true,
+        transform: [["babelify", { "presets": ["es2015"] }]]
     },
 
     reporters: ['spec'],
