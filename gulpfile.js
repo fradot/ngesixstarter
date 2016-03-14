@@ -52,10 +52,12 @@ gulp.task('scripts', function (done) {
     .pipe(plugins.uglify({mangle:true}))
       .on('error', gutil.log)
     .pipe(plugins.sourcemaps.write('./'))
-    // .pipe(plugins.header(banner))
     .pipe(gulp.dest(dirs.dist + '/js'))
     .on('end', function () {
-      gulp.src(dirs.dist + '/**/*')
+      gulp.src([
+          dirs.dist + '/**/*.js',
+          '!' + dirs.dist + '/js/main.js.map'
+        ]).pipe(plugins.header(banner))
         .pipe(plugins.connect.reload());
     });
 });
@@ -74,7 +76,7 @@ gulp.task('styles', function () {
     .pipe(plugins.concat('main.min.css'))
     .pipe(gulp.dest(dirs.dist + '/css'))
     .on('end', function () {
-      gulp.src(dirs.dist + '/**/*')
+      gulp.src(dirs.dist + '/**/*.css')
         .pipe(plugins.connect.reload());
     });
 });
