@@ -50,15 +50,14 @@ gulp.task('scripts', function (done) {
     // sourcemaps
     .pipe(plugins.sourcemaps.init({loadMaps: true}))
     .pipe(plugins.uglify({mangle:true}))
+    .pipe(plugins.header(banner))
       .on('error', gutil.log)
     .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest(dirs.dist + '/js'))
     .on('end', function () {
       gulp.src([
-          dirs.dist + '/**/*.js',
-          '!' + dirs.dist + '/js/main.js.map'
-        ]).pipe(plugins.header(banner))
-        .pipe(plugins.connect.reload());
+          dirs.dist + '/**/*'
+        ]).pipe(plugins.connect.reload());
     });
 });
 
