@@ -49,9 +49,9 @@ gulp.task('scripts', function (done) {
     .pipe(buffer())
     // sourcemaps
     .pipe(plugins.sourcemaps.init({loadMaps: true}))
-    .pipe(plugins.uglify({mangle:true}))
-    .pipe(plugins.header(banner))
-      .on('error', gutil.log)
+      .pipe(plugins.uglify({mangle:true}))
+      .pipe(plugins.header(banner))
+        .on('error', gutil.log)
     .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest(dirs.dist + '/js'))
     .on('end', function () {
@@ -64,15 +64,18 @@ gulp.task('scripts', function (done) {
 gulp.task('styles', function () {
   return gulp.src([
         dirs.src + '/less/*.less'
-  ]).pipe(plugins.header(banner))
-    .pipe(plugins.plumber())
-    .pipe(plugins.less())
-    .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-    .pipe(gulpif(argv.production,plugins.cssnano()))
-    .pipe(plugins.concat('main.min.css'))
+  ])
+    // .pipe(plugins.plumber())
+    // sourcemaps
+    .pipe(plugins.sourcemaps.init({loadMaps: true}))
+      .pipe(plugins.less())
+      .pipe(plugins.header(banner))
+      .pipe(plugins.autoprefixer({
+              browsers: ['last 2 versions'],
+              cascade: false
+          }))
+      .pipe(plugins.cssnano())
+    .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest(dirs.dist + '/css'))
     .on('end', function () {
       gulp.src(dirs.dist + '/**/*.css')
