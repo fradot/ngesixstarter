@@ -47,7 +47,6 @@ gulp.task('scripts', function (done) {
   return b.bundle()
     .pipe(source('main.js'))
     .pipe(buffer())
-    // sourcemaps
     .pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.uglify({mangle:true}))
       .pipe(plugins.header(banner))
@@ -64,10 +63,7 @@ gulp.task('scripts', function (done) {
 gulp.task('styles', function () {
   return gulp.src([
         dirs.src + '/less/*.less'
-  ])
-    // .pipe(plugins.plumber())
-    // sourcemaps
-    .pipe(plugins.sourcemaps.init({loadMaps: true}))
+  ]).pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.less())
       .pipe(plugins.header(banner))
       .pipe(plugins.autoprefixer({
