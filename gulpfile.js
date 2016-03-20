@@ -8,8 +8,6 @@ var gulp = require('gulp'),
     // https://github.com/gulpjs/gulp/issues/355
     runSequence = require('run-sequence'),
     Server = require('karma').Server,
-    argv = require('yargs').argv,
-    gulpif = require('gulp-if'),
     es6Conf = require('./esixstarter-conf.json'),
     dirs = es6Conf.dirs,
     banner = '/* ' + es6Conf.name + ' v' + es6Conf.version +
