@@ -60,7 +60,7 @@ gulp.task('scripts', function (done) {
 
 gulp.task('styles', function () {
   return gulp.src([
-        dirs.app + '/less/*.less'
+        dirs.app + '/styles/*.less'
   ]).pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.less())
       .pipe(plugins.header(banner))
@@ -80,7 +80,7 @@ gulp.task('styles', function () {
 gulp.task('source', function () {
   return gulp.src([
       dirs.app + '/**/*',
-      '!' + dirs.app + '/less{,/**/*.less}',
+      '!' + dirs.app + '/styles{,/**/*.less}',
       '!' + dirs.app + '/{,/services,/directives,/controllers,/lib,/**/*.js,/app.js}'
   ], {
       // Include hidden files by default
@@ -96,7 +96,7 @@ gulp.task('watch', function (done) {
   // Watching files
   gulp.watch(
        [dirs.app + '/**/*.js',
-         dirs.app + '/less/**/*.less',
+         dirs.app + '/styles/**/*.less',
          dirs.app + '/*.html'],
        ['lint:js','scripts','styles','source']
      ).on('end', done);
