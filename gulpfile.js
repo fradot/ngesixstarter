@@ -19,8 +19,8 @@ var gulp = require('gulp'),
 gulp.task('lint:js', function () {
   return gulp.src([
       'gulpfile.js',
-      dirs.src + '/js/*.js',
-      dirs.test + '/*.spec.js'
+      dirs.app + '/**/*.js',
+      dirs.test + '/**/*.spec.js'
   ]).pipe(plugins.plumber())
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'))
@@ -37,13 +37,13 @@ gulp.task('clean', function (done) {
 
 gulp.task('scripts', function (done) {
   var b = browserify({
-   entries: [dirs.src + '/js/main.js'],
+   entries: [dirs.app + '/app.js'],
    debug: true,
    transform: [["babelify", { "presets": ["es2015"] }]]
   });
 
   return b.bundle()
-    .pipe(source('main.js'))
+    .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.uglify({mangle:true}))
@@ -60,7 +60,7 @@ gulp.task('scripts', function (done) {
 
 gulp.task('styles', function () {
   return gulp.src([
-        dirs.src + '/less/*.less'
+        dirs.app + '/less/*.less'
   ]).pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.less())
       .pipe(plugins.header(banner))
@@ -79,9 +79,9 @@ gulp.task('styles', function () {
 
 gulp.task('source', function () {
   return gulp.src([
-      dirs.src + '/**/*',
-      '!' + dirs.src + '/less{,/**/*.less}',
-      '!' + dirs.src + '/js{/lib,/**/*.js}'
+      dirs.app + '/**/*',
+      '!' + dirs.app + '/less{,/**/*.less}',
+      '!' + dirs.app + '/{,/services,/directives,/controllers,/lib,/**/*.js,/app.js}'
   ], {
       // Include hidden files by default
       dot: true
@@ -95,9 +95,9 @@ gulp.task('source', function () {
 gulp.task('watch', function (done) {
   // Watching files
   gulp.watch(
-       [dirs.src + '/js/**/*.js',
-         dirs.src + '/less/**/*.less',
-         dirs.src + '/*.html'],
+       [dirs.app + '/**/*.js',
+         dirs.app + '/less/**/*.less',
+         dirs.app + '/*.html'],
        ['lint:js','scripts','styles','source']
      ).on('end', done);
 });

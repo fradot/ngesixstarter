@@ -2,10 +2,10 @@
   "name": "<your project name>",
   "description": "<your project description goes here>",
   "dirs": {
-      "test": "test",
+      "test": "./app_spec",
       "dist": "dist",
-      "src": "src"
+      "app": "./app"
     },
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author" : "<author fullname>"
 }
