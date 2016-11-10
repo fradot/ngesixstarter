@@ -27,15 +27,10 @@ Configure your project using the esixstarter-config.json file:
 
 <pre><code>
 {
-  "name": "-your project name-",
-  "description": "-your project description goes here-",
   "dirs": {
       "test": "./app_spec",
       "dist": "dist",
       "app": "./app"
-    },
-  "version": "1.0.0",
-  "author" : "-author fullname-"
 }
 </code></pre>
 
