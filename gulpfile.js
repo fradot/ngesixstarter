@@ -8,10 +8,11 @@ var gulp = require('gulp'),
     // https://github.com/gulpjs/gulp/issues/355
     runSequence = require('run-sequence'),
     Server = require('karma').Server,
-    es6Conf = require('./esixstarter-conf.json'),
+    es6Conf = require('./ngesixstarter-conf.json'),
+    packageJson = require('./package.json'),
     dirs = es6Conf.dirs,
-    banner = '/* ' + es6Conf.name + ' v' + es6Conf.version +
-            ' | ' + es6Conf.author + ' */\n\n';
+    banner = '/* ' + packageJson.name + ' v' + packageJson.version +
+            ' | ' + packageJson.author + ' */\n\n';
 
 // -------- HELPER TASKS
 
