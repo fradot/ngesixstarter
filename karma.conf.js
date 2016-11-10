@@ -9,8 +9,7 @@ module.exports = function(config) {
     frameworks: ['jasmine','browserify'],
 
     files: [
-      './dist/js/app.js',
-      './node_modules/angular-ui-router/release/angular-ui-router.js',
+      './app/app.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './app_spec/services/**/*.js',
       './app_spec/controllers/**/*.js'
