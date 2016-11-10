@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fradot/ngesixstarter.svg?branch=master)](https://travis-ci.org/fradot/ngesixstarter) 
+
 # Angular ES6 TDD-ready frontend boilerplate
 
 ngesixstarter is a simple front-end starter template for building AngularJS applications using ECMAScript6 features.
