@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fradot/ngesixstarter.svg?branch=master)](https://travis-ci.org/fradot/ngesixstarter) 
+[![Build Status](https://travis-ci.org/fradot/ngesixstarter.svg?branch=master)](https://travis-ci.org/fradot/ngesixstarter)
 
 # Angular ES6 TDD-ready frontend boilerplate
 
@@ -6,7 +6,7 @@ ngesixstarter is a simple front-end starter template for building AngularJS appl
 
 ## Features:
 
-- AngularJS
+- AngularJS + ES6 + Karma + Jasmine
 - TDD-ready environment.
 - ECMAScript6 support.
 - CSS & Javascript source map.
