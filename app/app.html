@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ngesixstarter">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>esixstarter - Javascript ES6 ready frontend starter template.</title>
+    <title>ngesixstarter - Angular ES6 TDD-ready starter boilerplate.</title>
 
     <link rel="stylesheet" href="css/app.css" media="screen" charset="utf-8">
   </head>
@@ -13,70 +13,36 @@
   <body>
 
     <header>
-      <h1>esixstarter</h1>
-      <p>A simple javascript starter template with ECMAScript6 support.</p>
+      <h1>ngesixstarter</h1>
+      <p>Angular tdd-ready boilerplate with ECMAScript6 support.</p>
     </header>
 
-    <div id="container">
+    <section id="container">
 
-        <h2>Javascript Test Driven Development template</h2>
+        <h2>Users</h2>
 
-        <p>esixstarter is a simple front-end starter template for
-          building javascript applications using ECMAScript6 features.</p>
+        <table>
+            <thead>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Github</th>
+            </thead>
+            <tbody ng-controller="UsersController as users">
+              <tr ng-repeat="user in users.all()">
+                <td>
+                  {{user.name}}
+                </td>
+                <td>
+                  {{user.surname}}
+                </td>
+                <td>
+                  {{user.github}}
+                </td>
+              </tr>
+            </tbody>
+        </table>
 
-        <h2>Features</h2>
-
-        <ul>
-          <li> TDD-ready environment.</li>
-          <li> ECMAScript6 support.</li>
-          <li> Source maps for javascript debugging.</li>
-          <li> Livereload! Browser automatically refresh on changes.</li>
-          <li> Less support.</li>
-          <li> Javascript & CSS minification.</li>
-          <li> Javascript linting.</li>
-          <li> CSS Autoprefixer</li>
-        </ul>
-
-
-        <h2>Configure your project</h2>
-        <p>Configure your project using the esixstarter-config.json file:</p>
-
-        <pre><code>
-        {
-          "name": "&lt;your project name&gt;",
-          "description": "&lt;your project description goes here&gt;",
-          "dirs": {
-              "test": "test",
-              "dist": "dist",
-              "src": "src"
-            },
-          "version": "1.0.0",
-          "author" : "&lt;author fullname&gt;"
-        }
-        </code></pre>
-
-        <h4> Install dependencies </h4>
-
-        <p>Install project dependencies from command line:</p>
-        <pre><code>npm install</code></pre>
-
-        <h4> Start developing </h4>
-
-        <p>  Start a development environment from your command line :</p> <pre><code>gulp</code></pre>
-
-        <p>By default gulp will start a new web server at <a href="localhost:8080">localhost</a> and karma for test execution.</p>
-        <p>Javascript code will be transpiled to EcmaScript5. All js files will be minified and included in dist/js/main.js.
-
-        Enable javascript <strong>source maps</strong> in your browser to easily debug your application.</p>
-
-
-        <h4> Build your project </h4>
-        <p>Build your project using the build command:</p>
-        <pre><code>gulp build</code></pre>
-
-        <p>The above command will produce a 'dist' folder.</p>
-
-    </div>
+    </section>
 
     <footer>
         <h2> License </h2>
@@ -105,7 +71,7 @@
         SOFTWARE.
       </p>
     </footer>
-    
+
     <script src="js/app.js"></script>
   </body>
 </html>

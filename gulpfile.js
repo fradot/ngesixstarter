@@ -14,6 +14,9 @@ var gulp = require('gulp'),
             ' | ' + es6Conf.author + ' */\n\n';
 
 
+// TODO: improve comments on tasks
+// TODO: introduce a development workflow in which testing is excluded in order
+
 // -------- HELPER TASKS
 
 gulp.task('lint:js', function () {
@@ -108,10 +111,7 @@ gulp.task('karma', function (done) {
      configFile: __dirname + '/karma.conf.js',
      singleRun: false,
      background: true
-   });
-
-   server.start();
-   done();
+   },done).start();
 });
 
 gulp.task('connect', function() {

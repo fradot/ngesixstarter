@@ -12,7 +12,8 @@ module.exports = function(config) {
       './dist/js/app.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './node_modules/angular-mocks/angular-mocks.js',
-      './app_spec/services/**/*.js'
+      './app_spec/services/**/*.js',
+      './app_spec/controllers/**/*.js'
     ],
 
    preprocessors: {
@@ -30,7 +31,7 @@ module.exports = function(config) {
     colors: true,
 
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO
+    logLevel: config.LOG_ERROR
 
   });
 };

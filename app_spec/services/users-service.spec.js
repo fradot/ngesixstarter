@@ -1,16 +1,24 @@
 describe('Users service', function() {
   var UsersService;
 
-  // Before each test load our api.users module
-  beforeEach(angular.mock.module('api.users'));
+  // Loading module
+  beforeEach(angular.mock.module('ngesixstarter'));
 
-  // Before each test set our injected Users factory (_Users_) to our local Users variable
-  beforeEach(inject(function(_UsersService_) {
+  // Injecting UsersService
+  beforeEach(inject((_UsersService_) => {
     UsersService = _UsersService_;
   }));
 
-  // A simple test to verify the Users factory exists
-  it('should exist', function() {
+  // Verifying exixstence
+  it('should exist', () => {
     expect(UsersService).toBeDefined();
+  });
+
+  // Users array
+  it('should return all users', () => {
+    var users = UsersService.all();
+
+    expect(users).toBeDefined();
+    expect(users.length).toBeGreaterThan(0);
   });
 });
