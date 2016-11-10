@@ -13,10 +13,6 @@ var gulp = require('gulp'),
     banner = '/* ' + es6Conf.name + ' v' + es6Conf.version +
             ' | ' + es6Conf.author + ' */\n\n';
 
-
-// TODO: improve comments on tasks
-// TODO: introduce a development workflow in which testing is excluded in order
-
 // -------- HELPER TASKS
 
 gulp.task('lint:js', function () {
