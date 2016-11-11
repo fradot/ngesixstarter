@@ -1,18 +1,20 @@
 describe('Users controllers', function() {
   var UsersController,UsersService;
 
-  // Loading module
   beforeEach(angular.mock.module('ngesixstarter'));
 
-  // Injecting Controller
-  beforeEach(inject(function($controller,_UsersService_) {
+  beforeEach(inject(($controller,_UsersService_) => {
     UsersController = $controller('UsersController');
     UsersService = _UsersService_;
   }));
 
-  // Verifying exixstence
-  it('should exist', function() {
+  it('should exist', () => {
     expect(UsersController).toBeDefined();
+  });
+
+  it('should contain an array of users', () => {
+    expect(UsersController.users).toBeDefined();
+    expect(UsersController.users.length).toBeGreaterThan(1);
   });
 
 });

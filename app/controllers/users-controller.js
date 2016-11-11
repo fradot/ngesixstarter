@@ -1,11 +1,10 @@
 export default class UsersController {
 
-  constructor(usersService) {
-    this.usersService = usersService;
-  }
+  constructor(UsersService) {
 
-  all() {
-    return this.usersService.all();
+    'ngInject';
+
+    this.users = UsersService.all();
   }
 
 }

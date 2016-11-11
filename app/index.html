@@ -27,8 +27,8 @@
               <th>Surname</th>
               <th>Github</th>
             </thead>
-            <tbody ng-controller="UsersController as users">
-              <tr ng-repeat="user in users.all()">
+            <tbody ng-controller="UsersController as usersCtrl">
+              <tr ng-repeat="user in usersCtrl.users">
                 <td>
                   {{user.name}}
                 </td>

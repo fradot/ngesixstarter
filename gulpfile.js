@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     gutil = require('gulp-util'),
+    ngAnnotate = require('browserify-ngannotate'),
     // Temporary solution until gulp 4
     // https://github.com/gulpjs/gulp/issues/355
     runSequence = require('run-sequence'),
@@ -39,7 +40,10 @@ gulp.task('scripts', function (done) {
   var b = browserify({
    entries: [dirs.app + '/app.js'],
    debug: true,
-   transform: [["babelify", { "presets": ["es2015"] }]]
+   transform: [
+     ["babelify", { "presets": ["es2015"] }],
+     "browserify-ngannotate"
+   ]
   });
 
   return b.bundle()
@@ -81,7 +85,7 @@ gulp.task('source', function () {
   return gulp.src([
       dirs.app + '/**/*',
       '!' + dirs.app + '/styles{,/**/*.less}',
-      '!' + dirs.app + '/{,/model,/services,/directives,/controllers,/lib,/**/*.js,/app.js}'
+      '!' + dirs.app + '/{,/services,/directives,/controllers,/lib,/**/*.js,/app.js}'
   ], {
       // Include hidden files by default
       dot: true

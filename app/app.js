@@ -5,4 +5,4 @@ import UsersController from './controllers/users-controller.js';
 
 export default angular.module('ngesixstarter', [])
         .service('UsersService', UsersService)
-        .controller('UsersController',['UsersService',UsersController]);
+        .controller('UsersController',UsersController);
