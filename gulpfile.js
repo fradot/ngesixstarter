@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     gutil = require('gulp-util'),
-    ngAnnotate = require('browserify-ngannotate'),
     // Temporary solution until gulp 4
     // https://github.com/gulpjs/gulp/issues/355
     runSequence = require('run-sequence'),
