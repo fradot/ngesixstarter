@@ -4,7 +4,7 @@ function AppConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('app', {
     abstract: true,
-    templateUrl: 'js/layout/app-view.html'
+    templateUrl: './js/layout/app-view.html'
   });
 
   $urlRouterProvider.otherwise('/');
