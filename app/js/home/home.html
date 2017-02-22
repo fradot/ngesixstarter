@@ -1,0 +1,22 @@
+<h2>Users</h2>
+
+<table>
+    <thead>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Github</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in $ctrl.users">
+        <td>
+          {{user.name}}
+        </td>
+        <td>
+          {{user.surname}}
+        </td>
+        <td>
+          {{user.github}}
+        </td>
+      </tr>
+    </tbody>
+</table>

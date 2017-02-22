@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     browserify = require('browserify'),
+    babelify = require('babelify'),
+    ngAnnotate = require('browserify-ngannotate'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     gutil = require('gulp-util'),
@@ -36,16 +38,10 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('scripts', function (done) {
-  var b = browserify({
-   entries: [dirs.app + '/app.js'],
-   debug: true,
-   transform: [
-     ["babelify", { "presets": ["es2015"] }],
-     "browserify-ngannotate"
-   ]
-  });
-
-  return b.bundle()
+  return browserify(dirs.app + '/js/app.js')
+    .transform(babelify, { "presets": ["es2015"] })
+    .transform(ngAnnotate)
+    .bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(plugins.sourcemaps.init({loadMaps: true}))
@@ -84,7 +80,7 @@ gulp.task('source', function () {
   return gulp.src([
       dirs.app + '/**/*',
       '!' + dirs.app + '/styles{,/**/*.less}',
-      '!' + dirs.app + '/{,/services,/directives,/controllers,/lib,/**/*.js,/app.js}'
+      '!' + dirs.app + '/js' + '/{,/services,/directives,/controllers,/lib,/**/*.js,/app.js}'
   ], {
       // Include hidden files by default
       dot: true
@@ -100,7 +96,7 @@ gulp.task('watch', function (done) {
   gulp.watch(
        [dirs.app + '/**/*.js',
          dirs.app + '/styles/**/*.less',
-         dirs.app + '/*.html'],
+         dirs.app + '/**/*.html'],
        ['lint:js','scripts','styles','source']
      ).on('end', done);
 });

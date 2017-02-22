@@ -9,10 +9,10 @@ module.exports = function(config) {
     frameworks: ['jasmine','browserify'],
 
     files: [
-      './app/app.js',
+      './app/js/app.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './app_spec/services/**/*.js',
-      './app_spec/controllers/**/*.js'
+      './app_spec/home/**/*.js'
     ],
 
    preprocessors: {
@@ -21,8 +21,11 @@ module.exports = function(config) {
     },
 
     browserify: {
-        debug: true,
-        transform: [["babelify", { "presets": ["es2015"] }]]
+        debug: false,
+        transform: [
+            ['babelify', { 'presets': ['es2015'] }],
+            'browserify-ngannotate'
+          ]
     },
 
     reporters: ['spec'],
@@ -30,7 +33,7 @@ module.exports = function(config) {
     colors: true,
 
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_ERROR
+    logLevel: config.LOG_DISABLE
 
   });
 };
