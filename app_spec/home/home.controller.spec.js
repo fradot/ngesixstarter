@@ -1,6 +1,7 @@
 describe('Home Controller', function() {
   var HomeController,UsersService;
 
+  beforeEach(angular.mock.module('templates'));
   beforeEach(angular.mock.module('ngesixstarter'));
 
   beforeEach(inject(($controller,_UsersService_) => {
