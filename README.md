@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/fradot/ngesixstarter.svg?branch=master)](https://travis-ci.org/fradot/ngesixstarter)
+[![devDependencies Status](https://david-dm.org/fradot/ngesixstarter/dev-status.svg)](https://david-dm.org/fradot/ngesixstarter?type=dev)
 
 # Angular ES6 TDD-ready frontend boilerplate
 
