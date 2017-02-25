@@ -1,7 +1,0 @@
-{
-  "dirs": {
-      "test": "./app_spec",
-      "dist": "dist",
-      "app": "./app"
-    }
-}

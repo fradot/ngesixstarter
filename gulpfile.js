@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     // https://github.com/gulpjs/gulp/issues/355
     runSequence = require('run-sequence'),
     Server = require('karma').Server,
-    es6Conf = require('./ngesixstarter-conf.json'),
+    es6Conf = require('./project-conf.json'),
     packageJson = require('./package.json'),
     dirs = es6Conf.dirs,
     banner = '/* ' + packageJson.name + ' v' + packageJson.version +
