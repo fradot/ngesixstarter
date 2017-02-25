@@ -76,12 +76,12 @@ gulp.task('styles', function () {
         dirs.app + '/styles/*.less'
   ]).pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.less())
-      .pipe(plugins.header(banner))
       .pipe(plugins.autoprefixer({
               browsers: ['last 2 versions'],
               cascade: false
           }))
       .pipe(plugins.cssnano())
+      .pipe(plugins.header(banner))
     .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest(dirs.dist + '/css'))
     .on('end', function () {
@@ -94,7 +94,7 @@ gulp.task('source', function () {
   return gulp.src([
       dirs.app + '/**/*',
       '!' + dirs.app + '/styles{,/**/*.less}',
-      '!' + dirs.app + '/js' + '/{,/services,/directives,/controllers,/lib,/**/*.js,/app.js}'
+      '!' + dirs.app + '/js{/*,/*/**.html,/**/*.js,/app.js}'
   ], {
       // Include hidden files by default
       dot: true
