@@ -1,7 +1,6 @@
-describe('Home Controller', function() {
+describe('Home', function() {
   var HomeController,UsersService;
 
-  beforeEach(angular.mock.module('templates'));
   beforeEach(angular.mock.module('ngesixstarter'));
 
   beforeEach(inject(($controller,_UsersService_) => {
@@ -14,7 +13,7 @@ describe('Home Controller', function() {
   });
 
   it('should contain an array of users', () => {
-    expect(HomeController.users).toBeDefined();
+    expect(HomeController.users).toBeDefined();;
     expect(HomeController.users.length).toBeGreaterThan(1);
   });
 

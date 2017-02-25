@@ -1,11 +1,11 @@
 {
-  "name": "esixstarter",
+  "name": "ngesixstarter",
   "version": "1.0.0",
   "description": "Javascript TDD-ready front-end template with ES6 support.",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/fradot/esixstarter.git"
+    "url": "https://github.com/fradot/ngesixstarter.git"
   },
   "keywords": [
     "javascript",

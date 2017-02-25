@@ -2,6 +2,7 @@ describe('Users service', function() {
   var UsersService;
 
  beforeEach(angular.mock.module('ngesixstarter'));
+
  beforeEach(inject((_UsersService_) => {
     UsersService = _UsersService_;
  }));

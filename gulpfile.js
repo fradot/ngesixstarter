@@ -32,13 +32,26 @@ gulp.task('lint:js', function () {
 
 gulp.task('clean', function (done) {
   require('del')([
-      dirs.dist
+      dirs.dist,
+      dirs.app + "/js/partials"
   ]).then(function () {
       done();
   });
 });
 
-gulp.task('scripts', function (done) {
+gulp.task('partials', function () {
+  return gulp.src(dirs.app + '/js/**/*.html')
+    .pipe(templateCache(
+      'index.js', {
+        "module":'app.partials',
+        "standalone": true,
+        "moduleSystem": "ES6"
+      }
+    ))
+    .pipe(gulp.dest(dirs.app + '/js/partials'));
+});
+
+gulp.task('scripts',['partials'], function (done) {
   return browserify(dirs.app + '/js/app.js')
     .transform(babelify, { "presets": ["es2015"] })
     .transform(ngAnnotate)

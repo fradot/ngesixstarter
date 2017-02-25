@@ -4,7 +4,7 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     frameworks: ['jasmine','browserify'],
 
@@ -13,13 +13,12 @@ module.exports = function(config) {
       './node_modules/angular-mocks/angular-mocks.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './app_spec/services/**/*.js',
-      './app/**/*.html'
+      './app_spec/home/**/*.js'
     ],
 
    preprocessors: {
       './app/**/*.js': ['browserify'],
-      './app_spec/**/*.spec.js': ['browserify'],
-      './app/**/*.html': ['ng-html2js']
+      './app_spec/**/*.spec.js': ['browserify']
     },
 
     browserify: {
@@ -30,21 +29,12 @@ module.exports = function(config) {
           ]
     },
 
-    ngHtml2JsPreprocessor: {
-      stripPrefix: '/app',
-      moduleName: 'templates'
-    },
-
-    // proxies : {
-    //   '/js/layout/app-view.html': '/base/js/layout/app-view.html'
-    // },
-
     reporters: ['spec'],
 
     colors: true,
 
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_DEBUG
+    logLevel: config.LOG_ERROR
 
   });
 };
