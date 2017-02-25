@@ -23,17 +23,6 @@ ngesixstarter is a simple front-end starter template for building AngularJS appl
 
 2. Or clone this git repo: <pre><code>git clone https://github.com/fradot/ngesixstarter.git</code></pre>
 
-##### Configure your project
-Configure your project using the esixstarter-config.json file:
-
-<pre><code>
-{
-  "dirs": {
-      "test": "./app_spec",
-      "dist": "dist",
-      "app": "./app"
-}
-</code></pre>
 
 ##### Install dependencies & Start developing
 
@@ -45,7 +34,7 @@ Run gulp command and start developing:
 
 By default gulp will start a new web server at http://localhost:8080 and karma for test execution.
 
-Javascript code will be transpiled to EcmaScript5. All js files will be minified and included in dist/js/main.js.
+Javascript code will be transpiled to EcmaScript5. All js files will be minified and included in dist/js/app.js.
 
 Enable javascript **source maps** in your browser to easily debug your application.
 
