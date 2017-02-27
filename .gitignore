@@ -1,4 +1,4 @@
 node_modules
 npm-debug.log
 dist
-app/js/partials/*.js
+app/js/partials

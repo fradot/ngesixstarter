@@ -51,7 +51,7 @@ gulp.task('partials', function () {
     .pipe(gulp.dest(dirs.app + '/js/partials'));
 });
 
-gulp.task('scripts',['partials'], function (done) {
+gulp.task('scripts',['partials','clean'], function (done) {
   return browserify(dirs.app + '/js/app.js')
     .transform(babelify, { "presets": ["es2015"] })
     .transform(ngAnnotate)
@@ -71,7 +71,7 @@ gulp.task('scripts',['partials'], function (done) {
     });
 });
 
-gulp.task('styles', function () {
+gulp.task('styles',['clean'], function () {
   return gulp.src([
         dirs.app + '/styles/*.less'
   ]).pipe(plugins.sourcemaps.init({loadMaps: true}))
@@ -90,7 +90,7 @@ gulp.task('styles', function () {
     });
 });
 
-gulp.task('source', function () {
+gulp.task('source',['clean'], function () {
   return gulp.src([
       dirs.app + '/**/*',
       '!' + dirs.app + '/styles{,/**/*.less}',
