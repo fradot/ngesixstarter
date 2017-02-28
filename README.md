@@ -43,3 +43,8 @@ Build your project using the build command:
 <pre><code>gulp build</code></pre>
 
 The above command will produce a 'dist' folder.
+
+## Todo
+
+- setup bower configuration
+- review and improve build

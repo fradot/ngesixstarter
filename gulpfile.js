@@ -51,7 +51,7 @@ gulp.task('partials', function () {
     .pipe(gulp.dest(dirs.app + '/js/partials'));
 });
 
-gulp.task('scripts',['partials','clean'], function (done) {
+gulp.task('scripts',['partials'], function () {
   return browserify(dirs.app + '/js/app.js')
     .transform(babelify, { "presets": ["es2015"] })
     .transform(ngAnnotate)
@@ -63,15 +63,10 @@ gulp.task('scripts',['partials','clean'], function (done) {
       .pipe(plugins.header(banner))
         .on('error', gutil.log)
     .pipe(plugins.sourcemaps.write('./'))
-    .pipe(gulp.dest(dirs.dist + '/js'))
-    .on('end', function () {
-      gulp.src([
-          dirs.dist + '/**/*'
-        ]).pipe(plugins.connect.reload());
-    });
+    .pipe(gulp.dest(dirs.dist + '/js'));
 });
 
-gulp.task('styles',['clean'], function () {
+gulp.task('styles', function () {
   return gulp.src([
         dirs.app + '/styles/*.less'
   ]).pipe(plugins.sourcemaps.init({loadMaps: true}))
@@ -83,14 +78,10 @@ gulp.task('styles',['clean'], function () {
       .pipe(plugins.cssnano())
       .pipe(plugins.header(banner))
     .pipe(plugins.sourcemaps.write('./'))
-    .pipe(gulp.dest(dirs.dist + '/css'))
-    .on('end', function () {
-      gulp.src(dirs.dist + '/**/*.css')
-        .pipe(plugins.connect.reload());
-    });
+    .pipe(gulp.dest(dirs.dist + '/css'));
 });
 
-gulp.task('source',['clean'], function () {
+gulp.task('source', function () {
   return gulp.src([
       dirs.app + '/**/*',
       '!' + dirs.app + '/styles{,/**/*.less}',
@@ -98,21 +89,23 @@ gulp.task('source',['clean'], function () {
   ], {
       // Include hidden files by default
       dot: true
-  }).pipe(gulp.dest(dirs.dist))
-  .on('end', function () {
-    gulp.src(dirs.dist + '/**/*')
-      .pipe(plugins.connect.reload());
-  });
+  }).pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('watch', function (done) {
   // Watching files
   gulp.watch(
        [dirs.app + '/**/*.js',
+        '!' + dirs.app + '/js/partials/**/*.js',
          dirs.app + '/styles/**/*.less',
          dirs.app + '/**/*.html'],
-       ['lint:js','scripts','styles','source']
-     ).on('end', done);
+       ['lint:js','reload']
+     );
+});
+
+gulp.task('reload', ['scripts','styles','source'] , function(){
+    gulp.src(dirs.dist + '/**/*')
+      .pipe(plugins.connect.reload());
 });
 
 gulp.task('karma', function (done) {
@@ -132,8 +125,6 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('copy', ['scripts','styles','source']);
-
 
 // -------- TEST TASK
 
@@ -148,14 +139,16 @@ gulp.task('test', function (done) {
 // -------- MAIN TASKS
 
 gulp.task('build', function (done) {
-  runSequence('clean',
+  runSequence(['clean'],
       ['test','lint:js'],
-      'copy',
+      ['scripts','styles','source'],
   done);
 });
 
 gulp.task('dev', function (done) {
-   runSequence('clean','copy',
+   runSequence(
+        ['clean'],
+        ['scripts','styles','source'],
         ['connect','watch','karma'],
    done);
 });

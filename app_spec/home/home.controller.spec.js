@@ -13,7 +13,7 @@ describe('Home', function() {
   });
 
   it('should contain an array of users', () => {
-    expect(HomeController.users).toBeDefined();;
+    expect(HomeController.users).toBeDefined();
     expect(HomeController.users.length).toBeGreaterThan(1);
   });
 
