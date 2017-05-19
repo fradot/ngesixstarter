@@ -1,8 +1,8 @@
 from node:boron
 
-MAINTAINER francesco Tucceri
+MAINTAINER fradot
 
-WORKDIR "/opt"  
+WORKDIR "/opt"
 
 RUN apt-get update
 RUN npm install -g gulp
