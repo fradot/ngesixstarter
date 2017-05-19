@@ -92,7 +92,7 @@ gulp.task('source', function () {
   }).pipe(gulp.dest(dirs.dist));
 });
 
-gulp.task('watch', function (done) {
+gulp.task('watch', function () {
   // Watching files
   gulp.watch(
        [dirs.app + '/**/*.js',
