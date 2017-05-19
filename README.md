@@ -44,8 +44,21 @@ Build your project using the build command:
 
 The above command will produce a 'dist' folder.
 
+#### Docker
+Run your project with docker! Install Docker and use the following commands to build the image and run the container:
+
+cd into your project folder and build docker image:
+<pre><code>docker build -t <your_project> .</code></pre>
+
+install dependencies:
+<pre><code>docker run --rm -v <path_to_your_project>:/opt <your_project> npm install</code></pre>
+
+start developing:
+<pre><code>docker run --rm -v <path_to_your_project>:/opt <your_project></code></pre>
+
+
+
 ## Todo
 
 - setup bower configuration
 - review and improve build
-- exclude partials from linting
