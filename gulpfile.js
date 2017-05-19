@@ -23,7 +23,9 @@ gulp.task('lint:js', function () {
   return gulp.src([
       'gulpfile.js',
       dirs.app + '/**/*.js',
+      '!' + dirs.app + '/js/partials/**/*.js',
       dirs.test + '/**/*.spec.js'
+
   ]).pipe(plugins.plumber())
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'))
