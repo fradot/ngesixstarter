@@ -48,3 +48,4 @@ The above command will produce a 'dist' folder.
 
 - setup bower configuration
 - review and improve build
+- exclude partials from linting
